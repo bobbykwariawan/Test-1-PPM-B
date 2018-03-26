@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="jmobile/jquery.mobile-1.4.5.min.css">
+	<script type="text/javascript" src="jmobile/jquery.min.js"></script>
+	<script type="text/javascript" src="jmobile/jquery.mobile-1.4.5.min.js"></script>
+	<title>jQuery Mobile</title>
+
+	<style>
+		@media all and (max-width: 35em) {
+			.my-breakpoint .ui-block-a,
+			.my-breakpoint .ui-block-b,
+			.my-breakpoint .ui-block-c,
+			.my-breakpoint .ui-block-d,
+			.my-breakpoint .ui-block-e {
+				width: 100%;
+				float: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div data-role="page" id="kalkulator" data-theme="b">
+		<div data-role="header" data-add-back-btn="true">
+			<h1>Kalkulator</h1>
+		</div>
+
+		<div data-role="content">
+
+			<div class="ui-grid-d">
+		        <div class="ui-block-a"><button data-theme="b" class="key" value="1">1</button></div>
+		        <div class="ui-block-b"><button data-theme="b" class="key" value="2">2</button></div>
+		        <div class="ui-block-c"><button data-theme="b" class="key" value="3">3</button></div>
+		        <div class="ui-block-d"><button data-theme="b" class="key" value="4">4</button></div>
+		        <div class="ui-block-e"><button data-theme="b" class="key" value="5">5</button></div>
+
+		        <div class="ui-block-a"><button data-theme="b" class="key" value="6">6</button></div>
+		        <div class="ui-block-b"><button data-theme="b" class="key" value="7">7</button></div>
+		        <div class="ui-block-c"><button data-theme="b" class="key" value="8">8</button></div>
+		        <div class="ui-block-d"><button data-theme="b" class="key" value="9">9</button></div>
+		        <div class="ui-block-e"><button data-theme="b" class="key" value="0">0</button></div>
+	      	</div>
+
+			<label for="input">Input:</label>
+     		<input type="text" id="input" value="" disabled data-theme="a">
+
+	      	<div class="ui-grid-a">
+	      		<label>Convert To:</label>
+	      		<div class="ui-block-a"><button data-theme="a" id="bin">Binary</button></div>
+	      		<div class="ui-block-b"><button data-theme="a" id="hex">Hexadecimal</button></div>
+	      	</div>
+
+     		<label for="output">Output:</label>
+     		<input type="text" id="output" value="" disabled data-theme="a">
+
+     		<button data-theme="b" class="key" id="clear">Clear</button>
+			
+		</div>
+
+		<div data-role="footer" data-add-back-btn="true">
+			<fieldset data-role="controlgroup">
+				<legend>Menu:</legend>
+				<label for="select-native-5">Menu</label>
+				<select name="select-native-5" class="menu">
+					<option selected disabled></option>
+				    <option value="#kalkulator">Kalkulator</option>
+				    <option value="#rgb">RGB</option>
+				    <option value="#rangkuman">Rangkuman</option>
+				</select>
+			</fieldset>
+		</div>
+
+	</div>
+
+	<div data-role="page" id="rgb" data-theme="b">
+		<div data-role="header" data-add-back-btn="true">
+			<h1>RGB Converter</h1>
+		</div>
+
+		<div data-role="content">
+
+			<div class="ui-grid-b">
+		        <div class="ui-block-a">
+		        	<label for="r">Red:</label>
+    				<input type="range" id="r" min="0" max="255" value="0">
+		        </div>
+
+		        <div class="ui-block-b">
+		        	<label for="g">Green:</label>
+    				<input type="range" id="g" min="0" max="255" value="0">
+		        </div>
+
+		        <div class="ui-block-c">
+		        	<label for="b">Blue:</label>
+    				<input type="range" id="b" min="0" max="255" value="0">
+		        </div>
+	      	</div>
+
+	      	<button data-theme="b" class="key" id="color">Colorize</button>
+
+	      	<label for="result">Result:</label>
+     		<input type="text" id="result" value="" disabled>
+			
+		</div>
+
+		<div data-role="footer" data-add-back-btn="true">
+			<fieldset data-role="controlgroup">
+				<legend>Menu:</legend>
+				<label for="select-native-5">Menu</label>
+				<select name="select-native-5" class="menu">
+					<option selected disabled value="menu"></option>
+				    <option value="#kalkulator">Kalkulator</option>
+				    <option value="#rgb">RGB</option>
+				    <option value="#rangkuman">Rangkuman</option>
+				</select>
+			</fieldset>
+		</div>
+
+	</div>
+
+	<div data-role="page" id="rangkuman" data-theme="b">
+
+		<div data-role="panel" id="materi" data-display="overlay">
+
+			<fieldset data-role="controlgroup">
+				<legend>Materi:</legend>
+				<label for="select-native-5">Materi</label>
+				<select name="select-native-5" id="materis">
+				    <option value="1">Github</option>
+				    <option value="2">jQuery Mobile</option>
+				    <option value="3">AngularJS</option>
+				</select>
+			</fieldset>
+
+		    <a href="#" data-rel="close" id="apply" class="ui-btn ui-btn-inline">Apply</a>
+		    <a href="#" data-rel="close"class="ui-btn ui-btn-inline">Cancel</a>
+		</div>
+
+		<div data-role="header" data-add-back-btn="true">
+			<h1>Rangkuman Materi</h1>
+		</div>
+
+		<div data-role="content">
+			Materi: <p id="material"></p>
+
+			<a href="#materi" class="ui-btn ui-btn-inline">Pilih Materi</a>
+			<br>
+			<br>
+			<ul data-role="listview" id="github" hidden>
+			    <li>Mempelajari Cara Menggunakan Github</li>
+			    <li>Mempelajari Cara menginisialisasi Github</li>
+			    <li>Mempelajari Cara Commit, Push di Github</li>
+			    <li>Mempelajari Cara Versioning Github</li>
+			</ul>
+
+			<ul data-role="listview" id="jmobile" hidden>
+			    <li>Mempelajari Cara Menggunakan jQuery Mobile</li>
+			    <li>Mempelajari Cara Membuat Page jQuery Mobile</li>
+			    <li>Mempelajari Element-element pada jQuery Mobile</li>
+			</ul>
+
+			<ul data-role="listview" id="angular" hidden>
+			    <li>Mempelajari Cara Menggunakan AngualarJS</li>
+			    <li>Mempelajari Syntax Javascript</li>
+			    <li>Mempelajari Repeat/Loop AngularJS</li>
+			    <li>Mempelajari Directive AngularJS</li>
+			</ul>
+
+			<br>
+
+		</div>
+
+		<div data-role="footer" data-add-back-btn="true">
+			<fieldset data-role="controlgroup">
+				<legend>Menu:</legend>
+				<label for="select-native-5">Menu</label>
+				<select name="select-native-5" class="menu">
+					<option selected disabled></option>
+				    <option value="#kalkulator">Kalkulator</option>
+				    <option value="#rgb">RGB</option>
+				    <option value="#rangkuman">Rangkuman</option>
+				</select>
+			</fieldset>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		var input = "";
+
+		$(document).ready(function(){
+
+			$(".menu").change(function(){
+				var $this = $( this ),
+			        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+			        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+			        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+			        textonly = !!$this.jqmData( "textonly" );
+			        html = $this.jqmData( "html" ) || "";
+			    $.mobile.loading( "show", {
+			            text: msgText,
+			            textVisible: textVisible,
+			            theme: theme,
+			            textonly: textonly,
+			            html: html
+			    });
+			    window.location = $(this).val();
+			});
+
+			$(".key").click(function(){
+				input += $(this).val();
+				$("#input").val(input);
+			});
+
+			$("#bin").click(function(){
+				if(input){
+					$("#output").val(Math.abs(input).toString(2));
+				}
+				else{
+					alert("Masukkan Input terlebih dahulu");
+				}
+			});
+
+			$("#hex").click(function(){
+				if(input){
+					$("#output").val(Math.abs(input).toString(16));
+				}
+				else{
+					alert("Masukkan Input terlebih dahulu.");
+				}
+			});
+
+			$("#clear").click(function(){
+				input = "";
+				$("#input").val("");
+				$("#output").val("");
+			});
+
+			$("#color").click(function(){
+				$("#result").css("background-color", `rgb(${$("#r").val()},${$("#g").val()},${$("#b").val()})`);
+			});
+
+			$("#apply").click(function(){
+				//alert($("#materis").val());
+				if($("#materis").val() == 1){
+					$("#material").text("Github");
+					$("#github").show("fast");
+					$("#jmobile").hide();
+					$("#angular").hide();
+				}
+				else if($("#materis").val() == 2){
+					$("#material").text("jQuery Mobile");
+					$("#jmobile").show("fast");
+					$("#github").hide();
+					$("#angular").hide();
+				}
+				else{
+					$("#material").text("AngularJS");
+					$("#angular").show("fast");
+					$("#github").hide();
+					$("#jmobile").hide();
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
